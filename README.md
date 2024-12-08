@@ -41,16 +41,14 @@ dmesg | tail
 ```
 
 ---
-## Example Scenario
+### Example Scenario
 In the Cmakelist you can see a test that load FileCreationBlocker module, the test try to create 3 files when 2 of them contains the kyy word `malicious` in there names. you can see the test will not ley you allocate the malicious files and only the valid one will be created in the watcher directory.
 ```bash
 make test
 ```
 
-3. **View Logs**:
-   ```
-   Example output:
-   ```
+**Tester output**:
+```
 sudo insmod ./main.ko
 sudo dmesg | tail
 [ 9671.087190] Module loaded and start listening to /home directory
@@ -83,13 +81,6 @@ sudo dmesg | tail
 [ 9717.404121] Restored original inode operations for directory: /home
 [ 9717.404122] Module unloaded and original operations restored.
    ```
-
-4. **Unload the Module**:
-   Restore the original directory behavior:
-   ```bash
-   sudo rmmod main
-   ```
-
 ---
 
 ## Limitations
